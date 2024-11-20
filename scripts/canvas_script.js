@@ -2,9 +2,11 @@ const canvas = document.getElementById("trafficCanvas");
 const ctx = canvas.getContext("2d");
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    drawIntersection();
+  // Ajustar tamaño del canvas a toda la ventana
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  drawIntersection();
 }
 
 function drawIntersection() {
@@ -14,63 +16,75 @@ function drawIntersection() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Calles
-    ctx.fillStyle = "#888888";
-    ctx.fillRect(centerX - 40, 0, 90, canvas.height); // Calle vertical
-    ctx.fillRect(0, centerY - 40, canvas.width, 90); // Calle horizontal
+    ctx.fillStyle = "#2A2E3A";
+    ctx.fillRect(centerX - 40, 0, 80, canvas.height); // Calle vertical
+    ctx.fillRect(0, centerY - 40, canvas.width, 80); // Calle horizontal
 
     // Divisores de carriles
     ctx.fillStyle = "#FFFF00";
     for (let i = 0; i < canvas.height; i += 50) {
-        ctx.fillRect(centerX - 1.8, i, 10, 25); // Línea central vertical
+        ctx.fillRect(centerX - 2, i, 4, 25); // Línea central vertical
     }
     for (let i = 0; i < canvas.width; i += 50) {
-        ctx.fillRect(i, centerY - 1.8, 25, 10); // Línea central horizontal
+        ctx.fillRect(i, centerY - 2, 25, 4); // Línea central horizontal
     }
 
-    // Semáforos
-    const offset = 80; // Distancia desde el centro
-    drawTrafficLight(centerX - offset - 40, centerY - offset - 60); // Noroeste
-    drawTrafficLight(centerX + offset, centerY - offset - 60); // Noreste
-    drawTrafficLight(centerX - offset - 40, centerY + offset, true); // Suroeste (rotado)
-    drawTrafficLight(centerX + offset, centerY + offset, true); // Sureste (rotado)
+    const offset = 100; // Ajuste para acercar los semáforos a las calles
+    drawTrafficLight(centerX - offset - 0.10, centerY - offset - 50, "horizontal"); // Noroeste
+    drawTrafficLight(centerX + offset - 40, centerY - offset - 0.10, "vertical"); // Noreste
+    drawTrafficLight(centerX - offset - 50, centerY + offset - 40, "vertical"); // Suroeste
+    drawTrafficLight(centerX + offset - 40, centerY + offset - 50, "horizontal"); // Sureste
 }
 
-function drawTrafficLight(x, y, rotated = false) {
-    ctx.save();
-    if (rotated) {
-        ctx.translate(x + 20, y + 50);
-        ctx.rotate(Math.PI / 2);
-        ctx.translate(-(x + 20), -(y + 50));
-    }
+function drawTrafficLight(x, y, orientation) {
+  ctx.fillStyle = "#1C1F27";
 
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(x, y, 40, 60);
+  if (orientation === "horizontal") {
+    ctx.fillRect(x, y, 40, 100);
 
     // Luces
     ctx.fillStyle = "#FF0000";
     ctx.beginPath();
-    ctx.arc(x + 20, y + 15, 10, 0, Math.PI * 2);
+    ctx.arc(x + 20, y + 20, 10, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.fillStyle = "#FFFF00";
     ctx.beginPath();
-    ctx.arc(x + 20, y + 30, 10, 0, Math.PI * 2);
+    ctx.arc(x + 20, y + 50, 10, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.fillStyle = "#00FF00";
     ctx.beginPath();
-    ctx.arc(x + 20, y + 45, 10, 0, Math.PI * 2);
+    ctx.arc(x + 20, y + 80, 10, 0, Math.PI * 2);
+    ctx.fill();
+  } else if (orientation === "vertical") {
+    // Semáforo vertical
+    ctx.fillRect(x, y, 100, 40);
+
+    // Luces
+    ctx.fillStyle = "#FF0000";
+    ctx.beginPath();
+    ctx.arc(x + 20, y + 20, 10, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.restore();
+    ctx.fillStyle = "#FFFF00";
+    ctx.beginPath();
+    ctx.arc(x + 50, y + 20, 10, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = "#00FF00";
+    ctx.beginPath();
+    ctx.arc(x + 80, y + 20, 10, 0, Math.PI * 2);
+    ctx.fill();
+  }
 }
 
 function changeTraffic(mode) {
-    if (mode === "rush") {
-        alert("Simulando tráfico en horas pico.");
-    } else {
-        alert("Simulando tráfico en horas no pico.");
-    }
+  if (mode === "rush") {
+    alert("Simulando tráfico en horas pico.");
+  } else {
+    alert("Simulando tráfico en horas no pico.");
+  }
 }
 
 window.addEventListener("resize", resizeCanvas);

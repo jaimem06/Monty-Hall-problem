@@ -9,14 +9,14 @@
 </head>
 
 <body>
-    <h3>Simulación de Tráfico en una Intersección Vial</h3>
-    <h3>Estudiante: Alyce Maldonado</h3>
-    <div>
+    <h3 id="title">Simulación de Tráfico en una Intersección Vial</h3>
+    <h3 id="student-name">Estudiante: Alyce Maldonado</h3>
+    <div id="button-container">
         <button onclick="changeTraffic('rush')">Horas Pico</button>
         <button onclick="changeTraffic('normal')">Horas No Pico</button>
     </div>
     <canvas id="trafficCanvas"></canvas>
-
     <script src="scripts/canvas_script.js"></script>
+    <script src="scripts/car_animation.js"></script>
 </body>
 </html>
