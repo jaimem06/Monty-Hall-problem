@@ -1,38 +1,22 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+#door-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
+    justify-content: space-around;
+    position: relative;
 }
 
-#title, #student-name {
-    color: #333;
-    margin: 5px 0;
+#door-container img {
+    width: 100px;
+    height: 200px;
+    position: absolute;
 }
 
-#button-container {
-    margin: 10px;
+.behind-door {
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    z-index: 0;
 }
 
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 10px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-#trafficCanvas {
-    display: block;
+.door {
+    z-index: 1;
 }

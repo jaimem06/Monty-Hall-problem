@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulación de Tráfico</title>
+    <title>Monty Hall Problem</title>
     <link rel="stylesheet" href="styles/index_styles.css">
 </head>
-
 <body>
-    <h3 id="title">Simulación de Tráfico en una Intersección Vial</h3>
-    <h3 id="student-name">Estudiante: Alyce Maldonado</h3>
-    <div id="button-container">
-        <button onclick="changeTraffic('rush')">Horas Pico</button>
-        <button onclick="changeTraffic('normal')">Horas No Pico</button>
+    <h1 id="title">Monty Hall Problem</h1>
+    <div id="door-container">
+        <div class="door-wrapper">
+            <img id="door1" class="door" src="images/CERRADA.png" alt="Door 1">
+        </div>
+        <div class="door-wrapper">
+            <img id="door2" class="door" src="images/CERRADA.png" alt="Door 2">
+        </div>
+        <div class="door-wrapper">
+            <img id="door3" class="door" src="images/CERRADA.png" alt="Door 3">
+        </div>
     </div>
-    <canvas id="trafficCanvas"></canvas>
-    <script src="scripts/canvas_script.js"></script>
-    <script src="scripts/car_animation.js"></script>
+    <div id="button-container">
+        <button id="toggle-doors">Toggle Doors</button>
+    </div>
+    <script src="scripts/monty_hall.js"></script>
 </body>
 </html>
