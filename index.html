@@ -5,22 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monty Hall Problem</title>
     <link rel="stylesheet" href="styles/index_styles.css">
+    <link rel="stylesheet" href="styles/button_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <h1 id="title">Monty Hall Problem</h1>
-    <div id="door-container">
-        <div class="door-wrapper">
-            <img id="door1" class="door" src="images/CERRADA.png" alt="Door 1">
+    <h1 id="titulo">Problema de Monty Hall</h1>
+    <div id="contenedor-puertas">
+        <div class="contenedor-puerta">
+            <img id="puerta1" class="puerta" src="images/CERRADA.png" alt="Puerta 1">
+            <img id="premio1" class="detras-puerta" src="images/goat.png" alt="Premio 1">
         </div>
-        <div class="door-wrapper">
-            <img id="door2" class="door" src="images/CERRADA.png" alt="Door 2">
+        <div class="contenedor-puerta">
+            <img id="puerta2" class="puerta" src="images/CERRADA.png" alt="Puerta 2">
+            <img id="premio2" class="detras-puerta" src="images/goat.png" alt="Premio 2">
         </div>
-        <div class="door-wrapper">
-            <img id="door3" class="door" src="images/CERRADA.png" alt="Door 3">
+        <div class="contenedor-puerta">
+            <img id="puerta3" class="puerta" src="images/CERRADA.png" alt="Puerta 3">
+            <img id="premio3" class="detras-puerta" src="images/goat.png" alt="Premio 3">
         </div>
     </div>
-    <div id="button-container">
-        <button id="toggle-doors">Toggle Doors</button>
+    <div id="monty-hall">
+        <img src="images/monty_hall.png" alt="Monty Hall">
+        <div id="modal" class="modal">
+            <p>¿Quieres cambiar de puerta?</p>
+            <button id="cambiar">Cambiar</button>
+            <button id="conservar">Conservar</button>
+        </div>
     </div>
     <script src="scripts/monty_hall.js"></script>
 </body>
