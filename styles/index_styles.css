@@ -48,14 +48,14 @@ body {
 
 h1 {
     margin-top: 10px;
-    font-size: 2em; /* Aumenta el tamaño de la fuente */
-    color: #272829; /* Cambiar el color a blanco para destacar sobre fondos oscuros */
-    font-family: 'Roboto', sans-serif; /* Usar una fuente moderna */
-    font-weight: 800; /* Hacer el texto más grueso para mayor impacto */
-    letter-spacing: 2px; /* Espaciado entre letras para mayor legibilidad */
-    text-transform: uppercase; /* Poner el texto en mayúsculas */
-    line-height: 1.2; /* Mejorar el espacio entre líneas */
-    margin-bottom: 10px; /* Agregar espacio debajo del título */
+    font-size: 2em;
+    color: #272829;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 10px;
 }
 
 #monty-hall {
@@ -73,16 +73,16 @@ h1 {
 
 #modal {
     display: none;
-    position: fixed; /* Fijar el modal en la ventana */
-    bottom: 40px; /* Espacio desde la parte inferior */
-    left: 170px; /* Mueve el modal a la derecha de la imagen */
+    position: fixed;
+    bottom: 40px;
+    left: 170px;
     background-color: #f1f0db;
     border-radius: 10px;
     padding: 15px;
     max-width: 250px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     animation: fadeIn 0.3s ease-in-out;
-    z-index: 9999; /* Garantiza que esté por encima de todos */
+    z-index: 9999;
 }
 
 .modal p {
